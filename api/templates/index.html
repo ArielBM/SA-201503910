@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+            SE AGREGA ESTILO A LA PÁGINA PARA QUE TENGA DOBLE COLUMNA
+        -->
+        <style>
+            body{
+                margin: 3%;
+                background-image: url('back.jpg');
+                /* 1 pixel black shadow to left, top, right and bottom */
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                font-family: sans; color: lightgreen;
+                text-align: center;
+            }
+            .column {
+            float: left;
+            width: 50%;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+
+        </style>
+        <title>
+            [SA]201503910 - Práctica 2
+        </title>
+        <!--
+            ESTOS SCRIPTS SON AGREGADOS PARA PODER ENCRIPTAR MEDIANTE EL ALGORITMO HMACSHA256
+        -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/hmac-sha256.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-base64.min.js"></script>
+    </head>
+    <body>
+
+        <h1>JWT Token Generator</h1>
+        <div class="row">
+            <div class="column">
+                <!--
+                    TEXTAREA QUE MOSTRARÁ EL TOKEN ARMADO
+                -->
+                <h1>Token Generado</h1>
+                <textarea id="token_s" name="token_s" rows="20" cols="40"
+                    style="font-size: 23px;">
+                </textarea>
+            </div>
+            <div class="column">
+                <br>
+                <br>
+                <br>
+                <label for="header_s">HEADER</label>
+                <br>
+                <!--
+                    TEXTAREA DONDE SE INGRESA EL HEADER
+                -->
+                <textarea name="header_s" id="header_s" rows="12" cols="80"
+                    style="font-size: 11.5px;"></textarea>
+                <br>
+                <label for="payload_s">PAYLOAD</label>
+                <br>
+                <!--
+                    TEXTAREA DONDE SE INGRESA EL PAYLOAD
+                -->
+                <textarea name="payload_s" id="payload_s" rows="12" cols="80"
+                    style="font-size: 11.5px;"></textarea>
+                <br>
+                <label for="signature_s">SECRET KEY</label>
+                <br>
+                <!--
+                    TEXTAREA DONDE SE INGRESA EL SECRET-KEY
+                -->
+                <textarea name="signature_s" id="signature_s" rows="12"
+                    cols="80" style="font-size: 11.5px;"></textarea>
+            </div>
+        </div>
+        <!--
+            SE AGREGAN LAS ACCIONES PARA CODIFICAR EN BASE 64 LOS DISTINTOS CAMPOS DEL TOKEN
+        -->
+        <script>
+
+            //VARIABLE EN DONDE SE ALMACENA EL SECRET KEY CODIFICADO
+            var secret_key = ""
+
+            //SE GUARDA EL TEXTAREA DEL HEADER EN UNA CONSTANTE
+            const header_v = document.getElementById("header_s")
+            
+            //SE AGREGA UN LISTENER PARA ARMAR EL TOKEN MIENTRAS SE ESCRIBE EL HEADER
+            header_v.addEventListener('change',(event)=>{
+                //SE CONCATENAN EL HEADER Y EL PAYLOAD CODIFICADOS EN BASE64
+                var c1 = window.btoa(document.getElementById("header_s").value) + "." +  window.btoa(document.getElementById("payload_s").value)
+                //SE CODIFICA EL SECRETKEY
+                secret_key = CryptoJS.HmacSHA256(c1.replaceAll("=", ""), document.getElementById("signature_s").value);
+                //SE MUESTRA EL TOKEN EN PANTALLA
+                document.getElementById("token_s").value = c1.replaceAll("=", "")  + "." + secret_key
+            })
+
+            //SE GUARDA EL TEXTAREA DEL PAYLOAD EN UNA CONSTANTE
+            const payload_v = document.getElementById("payload_s")
+
+            //SE AGREGA UN LISTENER PARA ARMAR EL TOKEN MIENTRAS SE ESCRIBE EL PAYLOAD
+            payload_v.addEventListener('change',(event)=>{
+                //SE CONCATENAN EL HEADER Y EL PAYLOAD CODIFICADOS EN BASE64
+                var c1 = window.btoa(document.getElementById("header_s").value) + "." +  window.btoa(document.getElementById("payload_s").value)
+                //SE CODIFICA EL SECRETKEY
+                secret_key = CryptoJS.HmacSHA256(c1.replaceAll("=", ""), document.getElementById("signature_s").value);
+                //SE MUESTRA EL TOKEN EN PANTALLA
+                document.getElementById("token_s").value = c1.replaceAll("=", "")  + "." + secret_key
+            })
+
+            //SE GUARDA EL TEXTAREA DEL SECRET-KEY EN UNA CONSTANTE
+            const signature_v = document.getElementById("signature_s")
+
+            //SE AGREGA UN LISTENER PARA ARMAR EL TOKEN MIENTRAS SE ESCRIBE EL SECRET-KEY
+            signature_v.addEventListener('change',(event)=>{
+                //SE CONCATENAN EL HEADER Y EL PAYLOAD CODIFICADOS EN BASE64
+                var c1 = window.btoa(document.getElementById("header_s").value) + "." +  window.btoa(document.getElementById("payload_s").value)
+                //SE CODIFICA EL SECRETKEY
+                secret_key = CryptoJS.HmacSHA256(c1.replaceAll("=", ""), document.getElementById("signature_s").value);
+                //SE MUESTRA EL TOKEN EN PANTALLA
+                document.getElementById("token_s").value = c1.replaceAll("=", "")  + "." + secret_key
+            })
+
+        </script>
+    </bod>
+</html>
