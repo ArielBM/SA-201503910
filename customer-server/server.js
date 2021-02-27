@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 const cors = require('cors');
 var corsOptions = {
     origin: '*',
-    optionsSuccessStatus: 200 
+    optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
 
@@ -18,4 +18,19 @@ routes(app);
 
 app.listen(port, () => {
     console.log(`El Servidor de "Clientes" está corriendo en: http://localhost:${port}`);
+    const axios = require('axios')
+
+    axios
+        .post('http://localhost:3010/api/enroll', {
+
+            puerto: port,
+            servidor: "cliente"
+
+        })
+        .then(res2 => {
+            //console.log(res2["data"])
+        })
+        .catch(error => {
+            console.log(error)
+        })
 });

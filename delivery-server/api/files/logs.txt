@@ -1,3 +1,0 @@
-
-El pedido con el ID: 2 con los elementos: Hamburguesa,Licuado de Fresa,Helado de Vainilla está listo para ser entregado. FECHA: Sun Feb 21 2021 22:43:14 GMT-0600 (GMT-06:00)
-El pedido con el ID: 2 se marcó como ENTREGADO. FECHA: Sun Feb 21 2021 22:44:10 GMT-0600 (GMT-06:00)
