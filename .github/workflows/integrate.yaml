@@ -1,8 +1,6 @@
 name: creación de artefactos de nodejs
 
-on:
-  push:
-    branches: [develop]
+on: push
 
 
 jobs:
