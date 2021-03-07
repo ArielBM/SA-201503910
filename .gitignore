@@ -1,0 +1,10 @@
+
+node_modules/
+customer-server/api/files/log.csv
+customer-server/api/files/log.csv
+customer-server/api/files/logs.txt
+delivery-server/api/files/log.csv
+delivery-server/api/files/logs.txt
+esb-module/api/files/logs.txt
+restaurant-server/api/files/log.csv
+restaurant-server/api/files/logs.txt
