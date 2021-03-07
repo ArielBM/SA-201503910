@@ -11,4 +11,4 @@ jobs:
       - uses: papeloto/action-zip@v1
         with:
           files: customer-server/ delivery-server/ esb-module/ restaurant-server/ package.json README.md
-          dest: result.zip  
+          dest: artifacts/result.zip  

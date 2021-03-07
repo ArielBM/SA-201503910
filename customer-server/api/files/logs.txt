@@ -1,0 +1,2 @@
+
+Se realizó un nuevo pedido con los elementos: Hamburguesa,Licuado de Fresa,Helado de Vainilla y se almacenó con el ID: 2 FECHA: Sat Feb 27 2021 00:46:24 GMT-0600 (GMT-06:00)
