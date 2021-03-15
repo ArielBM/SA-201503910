@@ -18,7 +18,8 @@ routes(app);
 
 app.listen(port, () => {
     console.log(`El Servidor del "Restaurante" está corriendo en: http://localhost:${port}`);
-    const axios = require('axios')
+
+    /*const axios = require('axios')
 
     axios
         .post('http://localhost:3010/api/enroll', {
@@ -32,5 +33,5 @@ app.listen(port, () => {
         })
         .catch(error => {
             console.log(error)
-        })
+        })*/
 });

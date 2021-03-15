@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="C:\Users\ArielBM\Documents\GitHub\SA-201503910\test\index.test.js">
+        <testCase name="Verificar Estado de un Pedido Se envía el id del pedido para verificar que fue creado y obtener su estado." duration="303">
+            <failure message="TypeError: app.route is not a function"><![CDATA[TypeError: app.route is not a function
+    at Server.Object.<anonymous>.module.exports (C:\Users\ArielBM\Documents\GitHub\SA-201503910\restaurant-server\api\routes\routes.js:6:9)
+    at Server.emit (events.js:315:20)
+    at parserOnIncoming (_http_server.js:790:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:119:17)]]></failure>
+        </testCase>
+    </file>
+</testExecutions>
