@@ -1,0 +1,48 @@
+DELETE http://localhost:3000/products/1
+Content-Type: application/json
+
+{}
+
+###
+PATCH http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+  "name": "Pizza"
+}
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Hamburguesa",
+  "price": "50.50"
+}
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "producto 01",
+  "photo_url": "https://cache.dominos.com/olo/6_31_1/assets/build/market/GT/_es/images/img/products/larges/S_PIZDX.jpg",
+  "price": "75.75"
+}
+
+<> 2020-08-13T101015.200.json
+<> 2020-08-13T100009.200.json
+
+###
+GET http://localhost:3000/products
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-08-13T100823.200.json
+<> 2020-08-13T100718.200.json
+<> 2020-08-13T100019.200.json
+<> 2020-08-13T095838.200.json
+<> 2020-08-13T095800.500.json
+
+###
+
